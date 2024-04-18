@@ -1,18 +1,12 @@
-import { useState } from "react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { Tasklist } from "./components/Tasklist";
+import { useState } from "react";
 
 import "./App.css";
 
 const App = () => {
-  // let count = 0;
   const [count, setCount] = useState(0);
-  const [show, setShow] = useState(true);
-  const [tasks, setTasks] = useState([
-    { id: 4001, name: "practice react js", completed: true },
-    { id: 4002, name: "take shower", completed: false },
-    { id: 4003, name: "take lunch", completed: false },
-  ]);
 
   function handleAdd() {
     setCount(count + 1);
@@ -24,10 +18,6 @@ const App = () => {
 
   function handleReset() {
     setCount(0);
-  }
-
-  function deleteTask(id) {
-    setTasks(tasks.filter((task) => task.id !== id));
   }
 
   return (
@@ -48,30 +38,7 @@ const App = () => {
           </button>
         </div>
       </div>
-
-      <div className="App">
-        <h1>Task List</h1>
-
-        <ul>
-          <button className="trigger" onClick={() => setShow(!show)}>
-            Toggle
-          </button>
-          {show &&
-            tasks.map((task) => (
-              <li
-                key={task.id}
-                className={task.completed ? "completed" : "incomplete"}
-              >
-                <span>
-                  {task.id} - {task.name}
-                </span>
-                <button onClick={() => deleteTask(task.id)} className="delete">
-                  Delete
-                </button>
-              </li>
-            ))}
-        </ul>
-      </div>
+      <Tasklist />
       <Footer />
     </div>
   );

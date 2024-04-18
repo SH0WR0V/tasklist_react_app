@@ -1,11 +1,11 @@
 import React from "react";
-import Logo from "../assets/OIP.jpg";
-import "./header.css";
+import Logo from "../assets/logo.png";
 
 export const Header = () => {
   return (
-    <div>
+    <header>
       <img src={Logo} className="logo" alt="" />
-    </div>
+      <a href="/">Home</a>
+    </header>
   );
 };
