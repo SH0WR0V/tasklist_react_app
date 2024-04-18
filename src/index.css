@@ -1,5 +1,6 @@
 * {
-  margin: 0 auto;
-  width: 1300px;
-  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  font-weight: 600;
 }
