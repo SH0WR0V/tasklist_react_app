@@ -16,12 +16,12 @@ export const Tasklist = () => {
   }
 
   return (
-    <div className="App">
+    <section className="App">
       <h1>Task List</h1>
 
       <ul>
         <button className="trigger" onClick={() => setShow(!show)}>
-          Toggle
+          {show ? "Hide" : "Show"}
         </button>
         {show &&
           tasks.map((task) => (
@@ -53,6 +53,6 @@ export const Tasklist = () => {
           temporibus provident hic enim ipsum voluptatem.
         </p>
       </BoxCard>
-    </div>
+    </section>
   );
 };
