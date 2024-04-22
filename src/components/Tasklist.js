@@ -3,13 +3,8 @@ import { useState } from "react";
 import { TaskCard } from "./TaskCard";
 import { BoxCard } from "./BoxCard";
 
-export const Tasklist = () => {
+export const Tasklist = ({ tasks, setTasks }) => {
   const [show, setShow] = useState(true);
-  const [tasks, setTasks] = useState([
-    { id: 4001, name: "practice react js", completed: true },
-    { id: 4002, name: "take shower", completed: false },
-    { id: 4003, name: "take lunch", completed: false },
-  ]);
 
   function deleteTask(id) {
     setTasks(tasks.filter((task) => task.id !== id));
@@ -17,9 +12,8 @@ export const Tasklist = () => {
 
   return (
     <section className="App">
-      <h1>Task List</h1>
-
       <ul>
+        <h1>Task List</h1>
         <button className="trigger" onClick={() => setShow(!show)}>
           {show ? "Hide" : "Show"}
         </button>
