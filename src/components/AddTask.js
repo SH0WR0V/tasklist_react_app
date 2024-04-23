@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-// import React, { useState, useRef } from "react";
+// import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./AddTask.css";
 
 export const AddTask = ({ tasks, setTasks }) => {
-  const [change, setChange] = useState("");
-  //   const taskRef = useRef("");
-  const [progress, setProgress] = useState(false);
   //   const [change, setChange] = useState("");
+  const taskRef = useRef("");
+  const [progress, setProgress] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const task = {
       id: Math.floor(Math.random() * 10000),
-      name: change,
-      //   name: taskRef.current.value,
+      //   name: change,
+      name: taskRef.current.value,
       completed: Boolean(progress),
     };
     setTasks([...tasks, task]);
-    setChange("");
-    //taskRef.current.value = "",
+    // setChange("");
+    taskRef.current.value = "";
     setProgress(false);
   };
   return (
@@ -29,9 +29,9 @@ export const AddTask = ({ tasks, setTasks }) => {
           id="task"
           placeholder="Task Name"
           autoComplete="off"
-          onChange={(event) => setChange(event.target.value)}
-          value={change}
-          //   ref = {taskRef}
+          //   onChange={(event) => setChange(event.target.value)}
+          //   value={change}
+          ref={taskRef}
         />
         <select
           onChange={(event) => setProgress(event.target.value)}
